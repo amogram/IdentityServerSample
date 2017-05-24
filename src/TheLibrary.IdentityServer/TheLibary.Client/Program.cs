@@ -41,9 +41,12 @@ namespace TheLibary.Client
             if (!noAuthresponse.IsSuccessStatusCode)
             {
                 Console.WriteLine(noAuthresponse.StatusCode);
+                Console.WriteLine("See? You need to be authorized. Clever, eh?");
             }
             Console.WriteLine();
             Console.WriteLine();
+
+            Console.ReadLine();
 
 
             Console.WriteLine("2. Attempt to call the API with the bearer token ----------");
@@ -59,8 +62,12 @@ namespace TheLibary.Client
             {
                 var content = await response.Content.ReadAsStringAsync();
                 Console.WriteLine(JArray.Parse(content));
+                Console.WriteLine("Oh my! It worked!");
             }
             Console.WriteLine("--------- End Call the API ----------");
+
+            Console.ReadLine();
+
         }
     }
 }
